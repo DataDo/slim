@@ -20,24 +20,30 @@ class Slim
 
     /**
      * Create a new slim app that hosts the provided repositories
-     * @param Repository|Repository[] $repositories
      * @return App
      */
-    public static function create($repositories)
+    public static function create()
     {
         $app = new App();
         $slimBS = new Slim();
 
-        if ($repositories instanceof Repository) {
-            return $slimBS->bootStrap($app, $repositories);
-        }
-
-        foreach ($repositories as $repo) {
+        foreach (func_get_args() as $repo) {
             $slimBS->bootStrap($app, $repo);
         }
 
         return $app;
 
+    }
+
+    public static function attach(App $slim)
+    {
+        $slimBS = new Slim();
+
+        foreach (func_get_args() as $arg) {
+            if ($arg instanceof Repository) {
+                $slimBS->bootStrap($slim, $arg);
+            }
+        }
     }
 
     /**
