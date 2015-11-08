@@ -1,0 +1,28 @@
+{
+  "name": "datado/slim",
+  "type": "library",
+  "description": "Easy rest api for PHP",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Thomas Biesaart",
+      "email": "thomas.biesaart@outlook.com"
+    }
+  ],
+  "require": {
+    "datado/data": "~1",
+    "slim/slim": "3.0.0-RC1"
+  },
+  "autoload": {
+    "psr-4": {
+      "DataDo\\": "src/main/php/DataDo"
+    }
+  },
+  "archive": {
+    "exclude": [
+      "*",
+      ".*",
+      "!/src/*"
+    ]
+  }
+}
