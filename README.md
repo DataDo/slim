@@ -24,6 +24,9 @@ Then you create your repository [more info here](https://github.com/DataDo/data)
     
     // You can also pass multiple repositories at the same time
     $app = \DataDo\Slim::create($pageRepository, $fileRepository, $userRepository);
+    
+    // All you need to do now is start the app
+    $app->run();
 
 ```
 
