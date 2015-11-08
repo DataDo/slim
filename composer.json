@@ -1,7 +1,7 @@
 {
   "name": "datado/slim",
   "type": "library",
-  "description": "Easy rest api for PHP",
+  "description": "A bootstrapper for the Slim framework",
   "license": "MIT",
   "authors": [
     {
