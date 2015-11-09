@@ -18,6 +18,8 @@ use Slim\Http\Response;
 class Slim
 {
 
+    private $showCheckPage = false;
+
     /**
      * Create a new slim app that hosts the provided repositories
      * @return App
@@ -27,8 +29,17 @@ class Slim
         $app = new App();
         $slimBS = new Slim();
 
+        // Find options
+        foreach (func_get_args() as $option) {
+            if (is_int($option)) {
+                $slimBS->flag($option);
+            }
+        }
+
         foreach (func_get_args() as $repo) {
-            $slimBS->bootStrap($app, $repo);
+            if ($repo instanceof Repository) {
+                $slimBS->bootStrap($app, $repo);
+            }
         }
 
         return $app;
@@ -39,10 +50,26 @@ class Slim
     {
         $slimBS = new Slim();
 
+        // Find options
+        foreach (func_get_args() as $option) {
+            if (is_int($option)) {
+                $slimBS->flag($option);
+            }
+        }
+
         foreach (func_get_args() as $arg) {
-            if ($arg instanceof Repository) {
+            if (!($arg instanceof App)) {
                 $slimBS->bootStrap($slim, $arg);
             }
+        }
+    }
+
+    public function flag($option)
+    {
+        switch ($option) {
+            case Slim::CHECK_PAGE:
+                $this->showCheckPage = true;
+                break;
         }
     }
 
@@ -93,12 +120,14 @@ class Slim
         });
 
 
-        /**
-         * Display the repository check page.
-         */
-        $app->get($baseUrl . '/check', function (Request $request, Response $response) use ($repository) {
-            $repository->checkDatabase();
-        });
+        if ($this->showCheckPage) {
+            /**
+             * Display the repository check page.
+             */
+            $app->get($baseUrl . '/check', function (Request $request, Response $response) use ($repository) {
+                $repository->checkDatabase();
+            });
+        }
 
 
         $entityUrl = $baseUrl . '/{id}';
@@ -200,4 +229,6 @@ class Slim
 
         return $result;
     }
+
+    const CHECK_PAGE = 0;
 }
