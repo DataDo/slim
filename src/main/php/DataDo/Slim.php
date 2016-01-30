@@ -58,7 +58,7 @@ class Slim
         }
 
         foreach (func_get_args() as $arg) {
-            if (!($arg instanceof App)) {
+            if ($arg instanceof Repository) {
                 $slimBS->bootStrap($slim, $arg);
             }
         }
