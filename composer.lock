@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2cd107b1de708e5826ccb59642753c1a",
-    "content-hash": "298460d7a77d5e3ebb5820bdb3bf9c85",
+    "hash": "465a0f0f041830e2ff6a245ed245b2dc",
+    "content-hash": "bbf3cfe96a16a499880b4bed811f521d",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -36,16 +36,16 @@
         },
         {
             "name": "datado/data",
-            "version": "1.1.5",
+            "version": "1.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/DataDo/data.git",
-                "reference": "042ac8fdec731953ca54882518caaed51882359d"
+                "reference": "555b02a27755032fcd53e165b0674e81a68067c0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DataDo/data/zipball/042ac8fdec731953ca54882518caaed51882359d",
-                "reference": "042ac8fdec731953ca54882518caaed51882359d",
+                "url": "https://api.github.com/repos/DataDo/data/zipball/555b02a27755032fcd53e165b0674e81a68067c0",
+                "reference": "555b02a27755032fcd53e165b0674e81a68067c0",
                 "shasum": ""
             },
             "type": "library",
@@ -65,7 +65,7 @@
                 }
             ],
             "description": "PHP to SQL connection dsl",
-            "time": "2016-02-05 15:53:36"
+            "time": "2016-02-05 23:32:33"
         },
         {
             "name": "nikic/fast-route",
